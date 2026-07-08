@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parallax Journey</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#050816;
+overflow-x:hidden;
+color:white;
+}
+
+/* Background */
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+overflow:hidden;
+z-index:-3;
+}
+
+.stars span{
+position:absolute;
+display:block;
+width:4px;
+height:4px;
+background:white;
+border-radius:50%;
+animation:float 12s linear infinite;
+opacity:.7;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(110vh);
+opacity:0;
+}
+
+30%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-20vh);
+opacity:0;
+}
+
+}
+
+/* Sections */
+
+section{
+
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+overflow:hidden;
+}
+
+.content{
+
+position:relative;
+text-align:center;
+z-index:3;
+max-width:800px;
+padding:20px;
+
+}
+
+.content h1{
+
+font-size:70px;
+margin-bottom:20px;
+text-shadow:0 0 20px cyan;
+
+}
+
+.content h2{
+
+font-size:55px;
+margin-bottom:20px;
+
+}
+
+.content p{
+
+font-size:20px;
+line-height:1.7;
+color:#ddd;
+
+}
+
+/* Mountains */
+
+.layer{
+
+position:absolute;
+width:120%;
+height:120%;
+left:-10%;
+background-repeat:no-repeat;
+background-position:center bottom;
+background-size:cover;
+
+}
+
+.back{
+
+background:linear-gradient(#07152f,#02030b);
+transform:translateZ(-1px) scale(2);
+
+}
+
+.middle{
+
+background:
+radial-gradient(circle at center,#00d4ff22 0%,transparent 60%);
+
+}
+
+.front{
+
+background:
+linear-gradient(transparent 60%,rgba(0,0,0,.8));
+
+}
+
+/* Floating cards */
+
+.card{
+
+position:absolute;
+padding:25px;
+border-radius:20px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.15);
+box-shadow:0 0 30px rgba(0,255,255,.2);
+
+}
+
+.card1{
+top:25%;
+left:10%;
+}
+
+.card2{
+right:10%;
+bottom:20%;
+}
+
+.card3{
+left:15%;
+bottom:15%;
+}
+
+/* Hero */
+
+.hero{
+
+background:
+linear-gradient(180deg,#030712,#081b33,#050816);
+
+}
+
+/* Section Colors */
+
+.s2{
+
+background:
+linear-gradient(#081b33,#0b2546);
+
+}
+
+.s3{
+
+background:
+linear-gradient(#091b3b,#101010);
+
+}
+
+.s4{
+
+background:
+linear-gradient(#000,#030712);
+
+}
+
+/* Button */
+
+button{
+
+margin-top:35px;
+padding:15px 35px;
+border:none;
+border-radius:40px;
+background:cyan;
+color:#000;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.1);
+box-shadow:0 0 30px cyan;
+
+}
+
+.scroll{
+
+position:absolute;
+bottom:40px;
+font-size:15px;
+animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+50%{
+transform:translateY(10px);
+}
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.content h1{
+
+font-size:45px;
+
+}
+
+.content h2{
+
+font-size:35px;
+
+}
+
+.content p{
+
+font-size:17px;
+
+}
+
+.card{
+
+display:none;
+
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<section class="hero">
+
+<div class="layer back" data-speed="0.15"></div>
+<div class="layer middle" data-speed="0.35"></div>
+<div class="layer front" data-speed="0.6"></div>
+
+<div class="card card1" data-speed="0.8">
+⚡ Future Interface
+</div>
+
+<div class="card card2" data-speed="1">
+🤖 AI Powered
+</div>
+
+<div class="content" data-speed="0.5">
+
+<h1>PARALLAX</h1>
+
+<p>
+
+Scroll to explore a futuristic journey where every layer moves at a different speed, creating depth and immersion.
+
+</p>
+
+<button>Begin Journey</button>
+
+<div class="scroll">
+
+▼ Scroll Down
+
+</div>
+
+</div>
+
+</section>
+
+<section class="s2">
+
+<div class="content" data-speed="0.4">
+
+<h2>Depth Creates Reality</h2>
+
+<p>
+
+Foreground objects move faster while distant backgrounds move slowly,
+creating a realistic illusion of depth.
+
+</p>
+
+</div>
+
+<div class="card card3" data-speed="1.1">
+
+🌌 Infinite Space
+
+</div>
+
+</section>
+
+<section class="s3">
+
+<div class="content" data-speed="0.6">
+
+<h2>Smooth Motion</h2>
+
+<p>
+
+Animations are lightweight and powered by JavaScript using requestAnimationFrame
+for smooth performance.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="s4">
+
+<div class="content" data-speed="0.5">
+
+<h2>Thanks for Scrolling</h2>
+
+<p>
+
+Parallax transforms ordinary scrolling into an interactive visual experience.
+
+</p>
+
+<button>Explore Again</button>
+
+</div>
+
+</section>
+
+<script>
+
+// Stars
+
+const stars=document.getElementById("stars");
+
+for(let i=0;i<120;i++){
+
+let star=document.createElement("span");
+
+star.style.left=Math.random()*100+"%";
+star.style.animationDelay=Math.random()*10+"s";
+star.style.animationDuration=(8+Math.random()*8)+"s";
+
+stars.appendChild(star);
+
+}
+
+// Parallax
+
+const layers=document.querySelectorAll("[data-speed]");
+
+function animate(){
+
+const scroll=window.pageYOffset;
+
+layers.forEach(layer=>{
+
+const speed=layer.dataset.speed;
+
+layer.style.transform=
+`translateY(${scroll*speed}px)`;
+
+});
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+</script>
+
+</body>
+</html>
